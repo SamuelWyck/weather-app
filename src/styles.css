@@ -45,3 +45,9 @@ header {
     align-items: center;
     gap: 2rem;
 }
+
+.degree {
+    font-size: 1.5em;
+    position: relative;
+    top: .15em;
+}
