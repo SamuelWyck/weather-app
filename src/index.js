@@ -1,5 +1,7 @@
 import testData from "./testData.js";
 import "./styles.css";
+import {findTimeZone, getZonedTime} from "timezone-support";
+import singleDayPage from "./singleDay.js";
 
 
 
@@ -35,6 +37,10 @@ const app = (function() {
     //     console.log(err)
     // })
 
-    console.log(testFetch())
+    const data = testFetch();
+    singleDayPage.createPage(data.resolvedAddress, data.days[0].tempmin, data.days[0].tempmax, data.days[0].hours[0]);
+    // const currentDate = new Date().getHours()
+    // const LondonTimeZone = findTimeZone("Europe/London")
+    // console.log(getZonedTime(Date.now(), LondonTimeZone))
 
 })();
