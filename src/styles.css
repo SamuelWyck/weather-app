@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'roboto';
+    src: url('./fonts/roboto.woff2') format('woff2'),
+         url('./fonts/roboto.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    font-family: "roboto", sans-serif;
+}
+
+.main {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: min-content 1fr min-content;
+}
+
+header {
+    display: flex;
+    padding: 1rem 2rem;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #C4FFF9;
+}
+
+.logo {
+    max-width: 60px;
+}
+
+.logo > img {
+    width: 100%;
+}
+
+.branding {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
