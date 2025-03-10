@@ -2,6 +2,7 @@ import testData from "./testData.js";
 import "./styles.css";
 import {findTimeZone, getZonedTime} from "timezone-support";
 import singleDayPage from "./singleDay.js";
+import forecast from "./8DayForecast.js";
 
 
 
@@ -38,7 +39,11 @@ const app = (function() {
     // })
 
     const data = testFetch();
-    singleDayPage.createPage(data.resolvedAddress, data.days[0].tempmin, data.days[0].tempmax, data.days[0].hours[0], data.days[0].hours);
+
+    // singleDayPage.createPage(data.resolvedAddress, data.days[0].tempmin, data.days[0].tempmax, data.days[0].hours[0], data.days[0].hours);
+
+    forecast.createPage(data.days, data.resolvedAddress);
+
     // const currentDate = new Date().getHours()
     // const LondonTimeZone = findTimeZone("Europe/London")
     // console.log(getZonedTime(Date.now(), LondonTimeZone))
