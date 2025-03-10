@@ -115,6 +115,14 @@ nav > button:hover {
     text-decoration: underline;
 }
 
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    background-color: #033046;
+    color: aliceblue;
+}
+
 .degree-holder {
     position: relative;
 }
@@ -138,14 +146,15 @@ h1 {
 
 .single-page {
     display: grid;
-    width: fit-content;
-    grid-template-columns: max-content max-content;
+    max-width: 847px;
+    grid-template-columns: 1fr 1fr;
     grid-auto-rows: min-content;
     margin: 0 auto;
-    gap: 2rem;
+    gap: 3rem 2rem;
 }
 
 .summary {
+    max-width: max-content;
     background-color: #033046;
     border-radius: 20px;
     display: flex;
@@ -187,6 +196,7 @@ h1 {
 }
 
 .data {
+    max-width: max-content;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: min-content min-content min-content;
@@ -216,4 +226,54 @@ h1 {
 .data-data {
     width: max-content;
     flex-shrink: 0;
+}
+
+.hourly-data {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 4rem;
+    overflow-x: auto;
+    width: 100%;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px -5px lightgray;
+}
+
+.hour-data {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.hour-temp, .hour-precip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hour-precip {
+    gap: .3rem;
+}
+
+.hour-temp-img, .hour-precip-img {
+    width: 25px;
+}
+
+.hour-img-div {
+    width: 50px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hour-img {
+    width: 100%;
+}
+
+.hour-time {
+    font-size: 1.2rem;
+    font-weight: bold;
 }
