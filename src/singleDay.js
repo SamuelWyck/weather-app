@@ -1,4 +1,10 @@
 import icons from "./weatherIcons.js";
+import tempIcon from "./imgs/data-icons/temp-icon.svg";
+import dewIcon from "./imgs/data-icons/dew-icon.svg";
+import windIcon from "./imgs/data-icons/wind-icon.svg";
+import UVIndexIcon from "./imgs/data-icons/uvindex-icon.svg";
+import humidityIcon from "./imgs/data-icons/humidity-icon.svg";
+import precipIcon from "./imgs/data-icons/precip-icon.svg";
 
 
 const singleDayPage = (function() {
@@ -106,28 +112,28 @@ const singleDayPage = (function() {
         const div = createElement("div", "data");
         
         const tempImg = createElement("img", "data-img");
-        tempImg.src = "#";
-        div.appendChild(createDataTempItem(tempImg, "High/Low", tempMin, tempMax));
-
-        const dewImg = createElement("img", "data-img");
-        dewImg.src = "#";
-        div.appendChild(createDataItem(dewImg, "Dew Point", `${Math.round(hrData.dew)}`, true));
-
+        tempImg.src = tempIcon;
+        div.appendChild(createDataTempItem(tempImg, "High/Low:", tempMin, tempMax));
+        
         const windImg = createElement("img", "data-img");
-        windImg.src = "#";
-        div.appendChild(createDataItem(windImg, "Wind Speed", `${hrData.windspeed} ${windUnit}`));
-
-        const uvIndexImg = createElement("img", "data-img");
-        uvIndexImg.src = "#";
-        div.appendChild(createDataItem(uvIndexImg, "UV Index", `${hrData.uvindex}/10`));
+        windImg.src = windIcon;
+        div.appendChild(createDataItem(windImg, "Wind:", `${hrData.windspeed} ${windUnit}`));
 
         const humidImg = createElement("img", "data-img");
-        humidImg.src = "#";
-        div.appendChild(createDataItem(humidImg, "Humidity", `${Math.round(hrData.humidity)}%`));
+        humidImg.src = humidityIcon;
+        div.appendChild(createDataItem(humidImg, "Humidity:", `${Math.round(hrData.humidity)}%`));
+
+        const dewImg = createElement("img", "data-img");
+        dewImg.src = dewIcon;
+        div.appendChild(createDataItem(dewImg, "Dew Point:", `${Math.round(hrData.dew)}`, true));
+        
+        const uvIndexImg = createElement("img", "data-img");
+        uvIndexImg.src = UVIndexIcon;
+        div.appendChild(createDataItem(uvIndexImg, "UV Index:", `${hrData.uvindex}/10`));
 
         const precipImg = createElement("img", "data-img");
-        precipImg.src = "#";
-        div.appendChild(createDataItem(precipImg, "Precipitation", `${Math.round(hrData.precipprob)}%`));
+        precipImg.src = precipIcon;
+        div.appendChild(createDataItem(precipImg, "Precipitation:", `${Math.round(hrData.precipprob)}%`));
 
         return div;
     };
