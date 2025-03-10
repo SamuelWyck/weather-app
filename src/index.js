@@ -38,7 +38,7 @@ const app = (function() {
     // })
 
     const data = testFetch();
-    singleDayPage.createPage(data.resolvedAddress, data.days[0].tempmin, data.days[0].tempmax, data.days[0].hours[0]);
+    singleDayPage.createPage(data.resolvedAddress, data.days[0].tempmin, data.days[0].tempmax, data.days[0].hours[0], data.days[0].hours);
     // const currentDate = new Date().getHours()
     // const LondonTimeZone = findTimeZone("Europe/London")
     // console.log(getZonedTime(Date.now(), LondonTimeZone))
