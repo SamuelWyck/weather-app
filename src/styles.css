@@ -141,15 +141,16 @@ h1 {
     grid-template-columns: max-content max-content;
     grid-auto-rows: min-content;
     margin: 0 auto;
+    gap: 2rem;
 }
 
 .summary {
     background-color: #033046;
     border-radius: 20px;
     display: flex;
-    /* justify-content: center; */
     gap: 3rem;
     padding: 1rem 2rem;
+    box-shadow: 0px 0px 20px 5px lightgray;
 }
 
 .temp-div {
@@ -177,7 +178,7 @@ h1 {
     align-items: center;
     justify-content: start;
     gap: 2rem;
-    margin-top: .5rem;
+    margin-top: 1rem;
 }
 
 .summary-icon-img {
@@ -188,4 +189,30 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: min-content min-content min-content;
+    gap: 2rem 4rem;
+    align-content: center;
+    padding: 2rem 3rem 2rem 2rem;
+    background-color: antiquewhite;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px 2px lightgray;
+}
+
+.data-item {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    gap: 1rem;
+}
+
+.data-img {
+    max-width: 30px;
+}
+
+.data-title {
+    flex-shrink: 0;
+}
+
+.data-data {
+    width: max-content;
+    flex-shrink: 0;
 }
