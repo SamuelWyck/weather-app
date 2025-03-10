@@ -28,6 +28,7 @@ const singleDayPage = (function() {
         const tempPara = createElement("p", "summary-temp");
         tempPara.textContent = `${Math.round(hrData.temp)}`;
         tempPara.appendChild(getDegree());
+        tempPara.classList.add("degree-holder");
         tempDiv.appendChild(tempPara);
 
         const feelsLikeText = createElement("p");
@@ -37,6 +38,7 @@ const singleDayPage = (function() {
         const feelsLikePara = createElement("p", "feels-like");
         feelsLikePara.textContent = `${Math.round(hrData.feelslike)}`;
         feelsLikePara.appendChild(getDegree());
+        feelsLikePara.classList.add("degree-holder");
         tempDiv.appendChild(feelsLikePara);
         
         return tempDiv;
@@ -76,6 +78,7 @@ const singleDayPage = (function() {
         dataPara.innerText = data;
         if (deg) {
             dataPara.appendChild(getDegree());
+            dataPara.classList.add("degree-holder");
         }
         div.appendChild(dataPara);
 
@@ -92,7 +95,8 @@ const singleDayPage = (function() {
         div.appendChild(titlePara);
 
         const dataPara = createElement("p", "data-data");
-        dataPara.innerHTML = `${min}<span class="degree">°</span>/${max}<span class="degree">°</span>`;
+        dataPara.innerHTML = `${Math.round(max)}<span class="degree">°</span> &nbsp;/${Math.round(min)}<span class="degree">°</span>`;
+        dataPara.classList.add("degree-holder");
         div.appendChild(dataPara);
 
         return div;
