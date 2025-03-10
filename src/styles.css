@@ -115,8 +115,77 @@ nav > button:hover {
     text-decoration: underline;
 }
 
+.degree-holder {
+    position: relative;
+}
+
 .degree {
     font-size: 1.5em;
-    position: relative;
-    top: .15em;
+    font-weight: normal;
+    position: absolute;
+    top: -.12em;
+}
+
+.content {
+    text-align: center;
+    background-color: aliceblue;
+}
+
+h1 {
+    margin: 2rem 0;
+}
+
+.single-page {
+    display: grid;
+    width: fit-content;
+    grid-template-columns: max-content max-content;
+    grid-auto-rows: min-content;
+    margin: 0 auto;
+}
+
+.summary {
+    background-color: #033046;
+    border-radius: 20px;
+    display: flex;
+    /* justify-content: center; */
+    gap: 3rem;
+    padding: 1rem 2rem;
+}
+
+.temp-div {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.temp-div :nth-child(2) {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    font-weight: normal;
+}
+
+.temp-div :nth-child(3) {
+    font-size: 2.5rem;
+}
+
+.summary-icon {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 2rem;
+    margin-top: .5rem;
+}
+
+.summary-icon-img {
+    max-width: 120px;
+}
+
+.data {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: min-content min-content min-content;
 }
