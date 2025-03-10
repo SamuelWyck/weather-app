@@ -5,6 +5,7 @@ import windIcon from "./imgs/data-icons/wind-icon.svg";
 import UVIndexIcon from "./imgs/data-icons/uvindex-icon.svg";
 import humidityIcon from "./imgs/data-icons/humidity-icon.svg";
 import precipIcon from "./imgs/data-icons/precip-icon.svg";
+import hourTempIcon from "./imgs/data-icons/thermometer.svg";
 
 
 const singleDayPage = (function() {
@@ -12,6 +13,16 @@ const singleDayPage = (function() {
     const contentDiv = document.querySelector(".content");
     let windUnit = "mph";
     const conditionIcons = icons;
+    const timeList = [
+        "12am", "1am", "2am",
+        "3am", "4am", "5am",
+        "6am", "7am", "8am",
+        "9am", "10am", "11am",
+        "12pm", "1pm", "2pm",
+        "3pm", "4pm", "5ppm",
+        "6pm", "7pm", "8pm",
+        "9pm", "10pm", "11pm"
+    ];
 
 
     function createElement(element, className=null) {
@@ -138,7 +149,65 @@ const singleDayPage = (function() {
         return div;
     };
 
-    function createPage(local, tempMin, tempMax, hrData) {
+    function createHourTempData(hour) {
+        const div = createElement("div", "hour-temp");
+
+        const tempImg = createElement("img", "hour-temp-img");
+        tempImg.src = hourTempIcon;
+        div.appendChild(tempImg);
+        
+        const tempPara = createElement("p", "hour-temp-data");
+        tempPara.textContent = Math.round(hour.temp);
+        tempPara.appendChild(getDegree());
+        tempPara.classList.add("degree-holder");
+        div.appendChild(tempPara);
+
+        return div;
+    };
+
+    function createHourPrecipData(hour) {
+        const div = createElement("div", "hour-precip");
+
+        const precipImg = createElement("img", "hour-precip-img");
+        precipImg.src = precipIcon;
+        div.appendChild(precipImg);
+
+        const precipPara = createElement("p", "hour-precip-data");
+        precipPara.textContent = `${Math.round(hour.precipprob)}%`;
+        div.appendChild(precipPara);
+
+        return div;
+    };
+
+    function createHourData(time, hour) {
+        const div = createElement("div", "hour-data");
+
+        const timePara = createElement("p", "hour-time");
+        timePara.textContent = time;
+        div.appendChild(timePara);
+
+        const conditionImg = createElement("img", "hour-img");
+        conditionImg.src = conditionIcons[hour.icon];
+        div.appendChild(conditionImg);
+
+        div.appendChild(createHourTempData(hour));
+        div.appendChild(createHourPrecipData(hour));
+
+        return div;
+    };
+
+    function createHourlySection(hourlyData) {
+        const div = createElement("div", "hourly-data");
+
+        for (let i = 0; i < hourlyData.length; i += 1) {
+            const hour = hourlyData[i];
+            const time = timeList[i];
+            div.appendChild(createHourData(time, hour));
+        }
+        return div
+    };
+
+    function createPage(local, tempMin, tempMax, hrData, dayData) {
         const localH1 = createElement("h1", "local");
         localH1.textContent = local;
         contentDiv.appendChild(localH1);
@@ -146,6 +215,7 @@ const singleDayPage = (function() {
         const pageDiv = createElement("div", "single-page");
         pageDiv.appendChild(createSummary(hrData));
         pageDiv.appendChild(createDataSection(tempMin, tempMax, hrData));
+        pageDiv.appendChild(createHourlySection(dayData));
         
         contentDiv.appendChild(pageDiv);
     };
