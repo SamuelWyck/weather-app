@@ -1,9 +1,11 @@
+import icons from "./weatherIcons.js";
 
 
 const singleDayPage = (function() {
 
     const contentDiv = document.querySelector(".content");
     let windUnit = "mph";
+    const conditionIcons = icons;
 
 
     function createElement(element, className=null) {
@@ -44,7 +46,7 @@ const singleDayPage = (function() {
         const div = createElement("div", "summary-icon");
         
         const img = createElement("img", "summary-icon-img");
-        img.src = "#" //get hashmap to descide icon based on hrData
+        img.src = conditionIcons[hrData.icon];
         div.appendChild(img);
 
         const descriptionPara = createElement("p", "summary-description");
