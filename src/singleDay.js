@@ -19,7 +19,7 @@ const singleDayPage = (function() {
         "6am", "7am", "8am",
         "9am", "10am", "11am",
         "12pm", "1pm", "2pm",
-        "3pm", "4pm", "5ppm",
+        "3pm", "4pm", "5pm",
         "6pm", "7pm", "8pm",
         "9pm", "10pm", "11pm"
     ];
@@ -186,9 +186,11 @@ const singleDayPage = (function() {
         timePara.textContent = time;
         div.appendChild(timePara);
 
+        const imgContainer = createElement("div", "hour-img-div");
         const conditionImg = createElement("img", "hour-img");
         conditionImg.src = conditionIcons[hour.icon];
-        div.appendChild(conditionImg);
+        imgContainer.appendChild(conditionImg);
+        div.appendChild(imgContainer);
 
         div.appendChild(createHourTempData(hour));
         div.appendChild(createHourPrecipData(hour));
@@ -204,7 +206,7 @@ const singleDayPage = (function() {
             const time = timeList[i];
             div.appendChild(createHourData(time, hour));
         }
-        return div
+        return div;
     };
 
     function createPage(local, tempMin, tempMax, hrData, dayData) {
