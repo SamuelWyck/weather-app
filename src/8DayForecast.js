@@ -85,7 +85,7 @@ const forecast = (function() {
         localH1.textContent = local;
         contentDiv.appendChild(localH1);
 
-        const forecastPage = createElement("div", "8-day-forecast");
+        const forecastPage = createElement("div", "forecast-page");
 
         for (let dayData of days) {
             forecastPage.appendChild(createDayCard(dayData));
