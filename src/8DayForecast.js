@@ -1,6 +1,7 @@
 import icons from "./weatherIcons.js";
 import tempIcon from "./imgs/data-icons/thermometer.svg";
 import precipIcon from "./imgs/data-icons/precip-icon.svg";
+import {format} from "date-fns";
 
 
 const forecast = (function() {
@@ -67,7 +68,7 @@ const forecast = (function() {
         const dayCard = createElement("div", "day-data");
 
         const datePara = createElement("p", "day-date");
-        datePara.textContent = dayData.datetime;
+        datePara.textContent = format(dayData.datetime, "E d");
         dayCard.appendChild(datePara);
 
         dayCard.appendChild(createConditionSection(dayData));
