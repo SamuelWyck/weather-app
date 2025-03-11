@@ -65,7 +65,7 @@ const forecast = (function() {
     };
 
     function createDayCard(dayData) {
-        const dayCard = createElement("div", "day-data");
+        const dayCard = createElement("div", "day-card");
 
         const datePara = createElement("p", "day-date");
         datePara.textContent = format(dayData.datetime, "E d");
