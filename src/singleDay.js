@@ -11,7 +11,9 @@ import hourTempIcon from "./imgs/data-icons/thermometer.svg";
 const singleDayPage = (function() {
 
     const contentDiv = document.querySelector(".content");
-    let windUnit = "mph";
+    const usUnit = "mph";
+    const metricUnit = "kph";
+    let windUnit = usUnit;
     const conditionIcons = icons;
     const timeList = [
         "12am", "1am", "2am",
@@ -209,7 +211,9 @@ const singleDayPage = (function() {
         return div;
     };
 
-    function createPage(local, tempMin, tempMax, hrData, dayData) {
+    function createPage(local, tempMin, tempMax, hrData, dayData, us=true) {
+        windUnit = (us) ? usUnit : metricUnit;
+
         const localH1 = createElement("h1", "local");
         localH1.textContent = local;
         contentDiv.appendChild(localH1);
