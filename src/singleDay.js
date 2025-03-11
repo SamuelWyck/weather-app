@@ -130,7 +130,7 @@ const singleDayPage = (function() {
         
         const windImg = createElement("img", "data-img");
         windImg.src = windIcon;
-        div.appendChild(createDataItem(windImg, "Wind:", `${hrData.windspeed} ${windUnit}`));
+        div.appendChild(createDataItem(windImg, "Wind:", `${Math.round(hrData.windspeed)} ${windUnit}`));
 
         const humidImg = createElement("img", "data-img");
         humidImg.src = humidityIcon;
