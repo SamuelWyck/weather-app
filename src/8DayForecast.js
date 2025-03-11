@@ -18,6 +18,11 @@ const forecast = (function() {
         return ele;
     };
 
+    function correctDate(date) {
+        date = new Date(date);
+        return new Date(date.getTime() + Math.abs(date.getTimezoneOffset()*60000));
+    };
+
     function createTempData(max, min) {
         const div = createElement("div", "day-temp");
 
@@ -68,7 +73,7 @@ const forecast = (function() {
         const dayCard = createElement("div", "day-card");
 
         const datePara = createElement("p", "day-date");
-        datePara.textContent = format(dayData.datetime, "E d");
+        datePara.textContent = format(correctDate(dayData.datetime), "E d");
         dayCard.appendChild(datePara);
 
         dayCard.appendChild(createConditionSection(dayData));
